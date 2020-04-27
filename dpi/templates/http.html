@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+HTTP requests
+{% endblock %}
+{% block content %}
+    <table>
+    <th>Method</th>
+    <th>Host</th>
+    <th>URL</th>
+    <th>Version</th>
+    <th>response</th>
+    {% for request in requests %}
+     <tr>
+      <td>{{ request.method }}</td>
+      <td>{{request.host }}</td>
+      <td>{{ request.url }}</td>
+      <td>{{ request.version }}</td>
+      <td>{{ request.response }}</td>
+      
+    {% else %}
+      <h2>No HTTP requests</h2>
+     </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

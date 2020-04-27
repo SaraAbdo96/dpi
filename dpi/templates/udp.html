@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+UDP Packets
+{% endblock %}
+{% block content %}
+  <table>
+    <th>source IP</th>
+    <th>source port</th>
+    <th>destination Ip</th>
+    <th>destination port</th>
+  {% for udp in udps %}
+   <tr>
+    <td>{{ udp.srcIP }}</td>
+    <td>{{ udp.srcPort }}</td>
+    <td>{{ udp.dstIP }}</td>
+    <td>{{ udp.dstPort }}</td>
+  {% else %}
+    <h2>No packets</h2>
+   </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

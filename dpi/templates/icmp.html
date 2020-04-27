@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+TCP Packets
+{% endblock %}
+{% block content %}
+  <table>
+    <th>Type</th>
+    <th>Code</th>
+    <th>Checksum_status</th>
+
+    {% for icmp in icmps %}
+     <tr>
+      <td>{{ icmp.type }}</td>
+      <td>{{icmp.code }}</td>
+      <td>{{ icmp.checksum_status }}</td>
+
+    {% else %}
+      <h2>No ICMP requests</h2>
+     </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
