@@ -84,16 +84,17 @@ class HTTPrequest(db.Model):
     host = db.Column(db.String(10))
     url = db.Column(db.String(1000))
     version = db.Column(db.String(10))
-    response_code_desc = db.Column(db.String(1000))
-
+    response_code_desc = db.Column(db.String(100))
+    response_code = db.Column(db.String(100))
     @classmethod
-    def add(cls, method, host, url, version="HTTP/1.1", response_code_desc="OK"):
+    def add(cls, method, host, url, version="HTTP/1.1",response_code_desc="OK", response_code="200"):
         data = {
             "method": method,
             "host": host,
             "url": url,
             "version": version,
-            "response": response_code_desc
+            "response_code_desc": response_code_desc,
+            "response_code": response_code
         }
         request = cls(**data)
         db.session.add(request)
