@@ -1,0 +1,5 @@
+*.pyc
+*.pcap
+*.cap
+*.sqlite
+__pycache__
