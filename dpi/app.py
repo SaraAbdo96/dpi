@@ -16,7 +16,7 @@ def index():
 def http():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
-    return render_template("http.html", requests = HTTPrequest.get_requests(page, per_page))
+    return render_template("http.html", requests = HTTPrequest.get_requests(page, per_page), page=int(page))
 
 @app.route("/tcps")
 def tcp():
@@ -35,4 +35,3 @@ def icmp():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
     return render_template("icmp.html", icmps = ICMPPacket.get_icmp(page, per_page))
-    
