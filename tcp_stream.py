@@ -1,22 +1,24 @@
 import pyshark
 import sys
+from dpi.models import TCPStream
 
 def main():
     file_name = "smallFlows.pcap"
     if len(sys.argv) == 2:
         file_name = sys.argv[1]
-    cap = pyshark.FileCapture(file_name)
-    stream_index = []
+    cap = pyshark.FileCapture(file_name, display_filter='tcp')
+    stream_indexes = []
     for pkt in cap:
         try:
-            stream_index.append(pkt.tcp.stream)
+            stream_indexes.append(pkt.tcp.stream)
         except:
             pass
-    stream_index = list(dict.fromkeys(stream_index))
-    print(stream_index)
-    for item in stream_index:
-        pcap = pyshark.FileCapture(file_name, display_filter='tcp.stream eq %s' % item)
-        print("Stream Index: " + str(item))
+    stream_indexes = list(dict.fromkeys(stream_indexes))
+    #stream_index.sort()
+    print(stream_indexes)
+    for stream_index in stream_indexes:
+        pcap = pyshark.FileCapture(file_name, display_filter='tcp.stream eq %s' % stream_index)
+        print("Stream Index: " + str(stream_index))
         while True:
             try:
                 p = pcap.next()
@@ -24,13 +26,10 @@ def main():
                 break
             try:
                 value = p.tcp.payload.binary_value
-                if len(value)==0:
-                    print("No TCP Stream")
-                else:
-                    print(value)
+                print(value)
             except AttributeError:
                 pass
-
+        #TCPStream.add(stream_index, value)
 
 if __name__ == '__main__':
     main()

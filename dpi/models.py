@@ -1,4 +1,27 @@
 from .app import db
+class TCPStream(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    stream_index = db.Column(db.Integer)
+    value = db.Column(db.String(1000))
+
+    @classmethod
+    def add(cls, stream_index, value):
+        data = {
+            "stream_index": stream_index,
+            "value": value
+        }
+        tcp_stream = cls(**data)
+        db.session.add(tcp_stream)
+        try:
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            raise
+
+    @classmethod
+    def get_tcp_stream(cls, page=0, per_page=20):
+        return cls.query.offset(page).limit(per_page).all()
+
 
 class ICMPPacket(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -53,14 +76,16 @@ class UDPPacket(db.Model):
 
 class TCPPacket(db.Model):
     id = db.Column(db.Integer, primary_key = True)
+    stream_index = db.Column(db.Integer)
     srcPort = db.Column(db.Integer)
     dstPort = db.Column(db.Integer)
     srcIP = db.Column(db.String(15))
     dstIP = db.Column(db.String(15))
 
     @classmethod
-    def add(cls, srcPort, dstPort, srcIP, dstIP):
+    def add(cls,stream_index, srcPort, dstPort, srcIP, dstIP):
         data = {
+            "stream_index" :stream_index,
             "srcPort": srcPort,
             "dstPort": dstPort,
             "srcIP": srcIP,

@@ -6,7 +6,7 @@ app.config.from_object("dpi.settings")
 
 db = SQLAlchemy(app)
 
-from .models import HTTPrequest, TCPPacket, UDPPacket, ICMPPacket
+from .models import HTTPrequest, TCPPacket, UDPPacket, ICMPPacket, TCPStream
 
 @app.route("/")
 def index():
@@ -35,3 +35,9 @@ def icmp():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
     return render_template("icmp.html", icmps = ICMPPacket.get_icmp(page, per_page))
+
+@app.route("/tcpstream")
+def tcp_stream():
+    page = request.args.get("page", 0)
+    per_page = request.args.get("per_page", 20)
+    return render_template("tcp_stream.html", tcp_streams = TCPStream.get_tcp_stream(page, per_page))

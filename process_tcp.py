@@ -16,8 +16,9 @@ def main():
             dstPort = int(tcp.dstPort)
             srcIP = ip.src
             dstIP = ip.dst
+            stream_index = packet.tcp.stream
             print("Adding TCP packet ({srcIP}:{srcPort}) --> ({dstIP}:{dstPort})")
-            TCPPacket.add(srcPort, dstPort, srcIP, dstIP)
+            TCPPacket.add(stream_index, srcPort, dstPort, srcIP, dstIP)
 
 if __name__ == '__main__':
     main()
