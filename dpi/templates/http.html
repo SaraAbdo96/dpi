@@ -3,5 +3,25 @@
 HTTP requests
 {% endblock %}
 {% block content %}
+ <table>
+    <th>method</th>
+    <th>host</th>
+    <th>uri</th>
+    <th>version</th>
+    <th>res</th>
+    <th>ress</th>
+  {% for http in https %}
+   <tr>
+    <td>{{ http.request_method}}</td>
+    <td>{{  http.host }}</td>
+    <td>{{ http.request_full_uri }}</td>
+    <td>{{ http.request_version }}</td>
+    <td>{http.response_code_desc}}</td>
+    <td>{{ http.response_code }}</td>
+  {% else %}
+    <h2>No packets</h2>
+   </tr>
+  {% endfor %}
+  </table>
     {% include 'components/http_table.html' %}
 {% endblock %}
