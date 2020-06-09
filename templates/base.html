@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  </head>
+  <body style="background:Gainsboro;">
+    <div class="b" style=" font-weight:bold; color:#fff; text-decoration:none; padding: .13rem; ">
+      <nav style=" font-size:1.5rem; color:#fff;  padding: .3rem; margin: 25px;">
+        <a href="{{ url_for('http') }}" style="color: Gainsboro; text-decoration:none;background:#003366;border-radius:12px;">HTTP</a>
+        <a href="{{ url_for('tcp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">TCP</a>
+        <a href="{{ url_for('udp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">UDP</a>
+        <a href="{{ url_for('icmp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">ICMP</a>
+        <a href="{{ url_for('tcp_stream') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">tcp_stream</a>
+      </nav>
+      {% block content %}
+      {% endblock %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
