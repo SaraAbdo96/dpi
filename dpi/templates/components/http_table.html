@@ -1,0 +1,19 @@
+<table class="table table-bordered table-hover table-light table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Method</th>
+      <th scope="col">Host</th>
+      <th scope="col">URL</th>
+      <th scope="col">Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for request in requests %}
+      {% include 'components/http_packet.html' %}
+    {% endfor %}
+  </tbody>
+</table>
+{% if page > 0 %}
+<a href="{{ url_for('http', page=page-1) }}">Previos</a>
+{% endif %}
+<a href="{{ url_for('http', page=page+1) }}">Next</a>

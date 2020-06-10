@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+TCP Packets
+{% endblock %}
+{% block content %}
+  <table>
+    <th>stream_index</th>
+    <th>source IP</th>
+    <th>source port</th>
+    <th>destination Ip</th>
+    <th>destination port</th>
+  {% for tcp in tcps %}
+   <tr>
+    <td>{{ tcp.stream_index}}</td>
+    <td>{{ tcp.srcIP }}</td>
+    <td>{{ tcp.srcPort }}</td>
+    <td>{{ tcp.dstIP }}</td>
+    <td>{{ tcp.dstPort }}</td>
+  {% else %}
+    <h2>No packets</h2>
+   </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

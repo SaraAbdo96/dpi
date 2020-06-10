@@ -1,0 +1,33 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+     <link rel="stylesheet" href="main.css">
+     <link rel="stylesheet" href="table.css">
+  </head>
+  <body>
+{% extends 'base.html' %}
+{% block content %}
+  <table>
+    <th>Type</th>
+    <th>Code</th>
+    <th>Checksum_status</th>
+
+    {% for icmp in icmps %}
+     <tr>
+      <td>{{ icmp.type }}</td>
+      <td>{{icmp.code }}</td>
+      <td>{{ icmp.checksum_status }}</td>
+
+    {% else %}
+      <h2>No ICMP requests</h2>
+     </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+  </body>
+</html>
+
