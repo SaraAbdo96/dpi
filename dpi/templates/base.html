@@ -1,21 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="table.css">
 
   </head>
-  <body>
-    <div class="container b">
-      <nav>
-        <a href="{{ url_for('http') }}">HTTP</a>
-        <a href="{{ url_for('tcp') }}">TCP</a>
-        <a href="{{ url_for('udp') }}">UDP</a>
-        <a href="{{ url_for('icmp') }}">ICMP</a>
-        <a href="{{ url_for('tcp_stream') }}">tcp_stream</a>
+  <body style="background:Gainsboro;">
+    <div class="b" style=" font-weight:bold; color:#fff; text-decoration:none; padding: .13rem; ">
+      <nav style=" font-size:1.5rem; color:#fff;  padding: .3rem; margin: 25px;">
+        <a href="{{ url_for('http') }}" style="color: Gainsboro; text-decoration:none;background:#003366;border-radius:12px;">HTTP</a>
+        <a href="{{ url_for('tcp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">TCP</a>
+        <a href="{{ url_for('udp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">UDP</a>
+        <a href="{{ url_for('icmp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">ICMP</a>
+        <a href="{{ url_for('tcp_stream') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">tcp_stream</a>
       </nav>
       {% block content %}
       {% endblock %}

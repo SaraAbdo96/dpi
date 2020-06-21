@@ -12,7 +12,7 @@
 {% set tr_class="table-light" %}
 {% endif %}
 <tr class="{{ tr_class}}">
-  <th scope="row">{{ request.method }}</th>
+  <th scope="row" style="padding: 12px;">{{ request.method }}</th>
   <td>{{ request.host }}</td>
   <td title="{{ request.url }}">{{ "/" + "/".join(request.url.split("/")[3:])[:50] }}</td>
   <td>{{ request.response_code }} : {{ request.response_code_desc }}</td>

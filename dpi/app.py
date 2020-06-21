@@ -22,22 +22,22 @@ def http():
 def tcp():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
-    return render_template("tcp.html", tcps = TCPPacket.get_tcp(page, per_page))
+    return render_template("tcp.html", tcps = TCPPacket.get_tcp(page, per_page), page=int(page))
 
 @app.route("/udps")
 def udp():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
-    return render_template("udp.html", udps = UDPPacket.get_udp(page, per_page))
+    return render_template("udp.html", udps = UDPPacket.get_udp(page, per_page), page=int(page))
 
 @app.route("/icmps")
 def icmp():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
-    return render_template("icmp.html", icmps = ICMPPacket.get_icmp(page, per_page))
+    return render_template("icmp.html", icmps = ICMPPacket.get_icmp(page, per_page), page=int(page))
 
 @app.route("/tcpstream")
 def tcp_stream():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
-    return render_template("tcp_stream.html", tcp_streams = TCPStream.get_tcp_stream(page, per_page))
+    return render_template("tcp_stream.html", tcp_streams = TCPStream.get_tcp_stream(page, per_page), page=int(page))

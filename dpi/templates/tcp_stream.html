@@ -3,17 +3,5 @@
 TCP Stream
 {% endblock %}
 {% block content %}
-  <table>
-    <th>Stream index</th>
-    <th>Stream value</th>
-  {% for tcp_stream in tcp_streams %}
-   <tr>
-    <td>{{ tcp_stream.stream_index }}</td>
-    <td>{{ tcp_stream.value }}</td>
-
-  {% else %}
-    <h2>No Streams</h2>
-   </tr>
-  {% endfor %}
-  </table>
+  {% include 'components/tcp_stream_table.html' %}
 {% endblock %}
