@@ -131,3 +131,7 @@ class HTTPrequest(db.Model):
     @classmethod
     def get_requests(cls, page=0, per_page=20):
         return cls.query.offset(page).limit(per_page).all()
+
+
+
+
