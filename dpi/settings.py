@@ -1,2 +1,2 @@
-SQLALCHEMY_DATABASE_URI = 'sqlite:///dpi.sqlite'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost:5000/myTemporarySQL'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
