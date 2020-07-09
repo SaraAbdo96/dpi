@@ -18,20 +18,20 @@
     <ul class="pagination">
       {% if page > 0 %}
       <li class="page-item">
-          <a class="page-link" href="{{ url_for('tcp', page=page-1) }}" tabindex="-1" aria-disabled="true">Previous</a>
+          <a class="page-link" href="{{ url_for('tcp', page=page-10) }}" tabindex="-1" aria-disabled="true">Previous</a>
       </li>
 
-      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=page) }}">1</a></li>
-      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=2) }}">2</a></li>
-      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=3) }}">3</a></li>
-      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=4) }}">4</a></li>
-      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=5) }}">5</a></li>
-      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=6) }}">6</a></li>
+      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=0) }}">1</a></li>
+      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=20) }}">2</a></li>
+      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=40) }}">3</a></li>
+      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=60) }}">4</a></li>
+      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=80) }}">5</a></li>
+      <li class="page-item"><a class="page-link" href="{{  url_for('tcp', page=100) }}">6</a></li>
       {% endif %}
 
 
       <li class="page-item">
-        <a class="page-link"  href="{{ url_for('tcp', page=page+1) }}" >Next
+        <a class="page-link"  href="{{ url_for('tcp', page=page+10) }}" >Next
         </a>
       </li>
     </ul>
