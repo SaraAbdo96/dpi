@@ -41,5 +41,3 @@ def tcp_stream():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
     return render_template("tcp_stream.html", tcp_streams = TCPStream.get_tcp_stream(page, per_page), page=int(page))
-
-
