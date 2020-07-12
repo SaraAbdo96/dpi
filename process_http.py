@@ -7,7 +7,7 @@ def main():
    #file_name = "smallFlows.pcap"
     #if len(sys.argv) == 2:
         #file_name = sys.argv[1]
-    capture = pyshark.LiveCapture(interface="ens33")
+    capture = pyshark.LiveCapture(interface="lo")
     capture.sniff(timeout=10)
     num_http_request = 0
     num_http_response = 0
@@ -19,14 +19,14 @@ def main():
             if protocol == "TCP":
                 dst_port = int(packet.tcp.dstport)
                 src_port = int(packet.tcp.srcport)
-                if dst_port == 80:
+                if dst_port == 5000:
                     num_http_request += 1
                     http = packet.http
                     method = http.request_method
                     host = http.host
                     uri = http.request_full_uri
                     version = http.request_version
-                if src_port == 80:
+                if src_port == 5000:
                     num_http_response += 1
                     http = packet.http
                     res = http.response_code_desc

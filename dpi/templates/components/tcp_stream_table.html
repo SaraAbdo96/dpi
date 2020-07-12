@@ -15,7 +15,7 @@
     <ul class="pagination">
       {% if page > 0 %}
       <li class="page-item">
-          <a class="page-link" href="{{ url_for('tcp', page=page-10) }}" tabindex="-1" aria-disabled="true">Previous</a></li>
+          <a class="page-link" href="{{ url_for('tcp_straem', page=page-10) }}" tabindex="-1" aria-disabled="true">Previous</a></li>
 
       <li class="page-item"><a class="page-link" href="{{  url_for('tcp_stream', page=0) }}">1</a></li>
       <li class="page-item"><a class="page-link" href="{{  url_for('tcp_stream', page=20) }}">2</a></li>
@@ -26,7 +26,7 @@
       {% endif %}
 
       <li class="page-item">
-        <a class="page-link"  href="{{ url_for('tcp', page=page+10) }}" >Next</a></li>
+        <a class="page-link"  href="{{ url_for('tcp_stream', page=page+10) }}" >Next</a></li>
     </ul>
   </nav>
 

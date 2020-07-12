@@ -3,10 +3,11 @@ import sys
 from dpi.models import TCPPacket
 
 def main():
-    file_name = "smallFlows.pcap"
-    if len(sys.argv) == 2:
-        file_name = sys.argv[1]
-    capture = pyshark.FileCapture(file_name)
+    #file_name = "smallFlows.pcap"
+    #if len(sys.argv) == 2:
+        #file_name = sys.argv[1]
+    capture = pyshark.LiveCapture(interface="ens33")
+    capture.sniff(timeout=10)
     num_http_request = 0
     for packet in capture:
         if "tcp" in packet:

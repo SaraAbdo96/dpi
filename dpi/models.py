@@ -1,4 +1,29 @@
 from .app import db
+class TopTalkers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    src_ip = db.Column(db.String(15))
+    dest_ip = db.Column(db.String(15))
+
+
+    @classmethod
+    def add(cls, src_ip, dest_ip):
+        data = {
+            "srcIP": src_ip,
+            "dstIP": dest_ip
+        }
+        top = cls(**data)
+        db.session.add(top)
+        try:
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            raise
+
+    @classmethod
+    def get_top_talkers(cls, page=0, per_page=20):
+        return cls.query.offset(page).limit(per_page).all()
+
+
 class TCPStream(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     stream_index = db.Column(db.Integer)
@@ -24,20 +49,20 @@ class TCPStream(db.Model):
 
 
 class ICMPPacket(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.Integer)
     code = db.Column(db.Integer)
     checksum_status = db.Column(db.Integer)
 
     @classmethod
-    def add(cls, type, code, checksum_status):
+    def add(cls, typee, code, checksum_status):
         data = {
-            "type": type,
+            "type": typee,
             "code": code,
             "checksum_status": checksum_status
         }
-        udp = cls(**data)
-        db.session.add(udp)
+        icmp = cls(**data)
+        db.session.add(icmp)
         try:
             db.session.commit()
         except Exception as e:
@@ -48,7 +73,7 @@ class ICMPPacket(db.Model):
         return cls.query.offset(page).limit(per_page).all()
 
 class UDPPacket(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     srcPort = db.Column(db.Integer)
     dstPort = db.Column(db.Integer)
     srcIP = db.Column(db.String(15))
@@ -106,11 +131,11 @@ class TCPPacket(db.Model):
 class HTTPrequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     method = db.Column(db.String(10))
-    host = db.Column(db.String(10))
+    host = db.Column(db.String(100))
     url = db.Column(db.String(1000))
     version = db.Column(db.String(10))
     response_code_desc = db.Column(db.String(100))
-    response_code = db.Column(db.String(100))
+    response_code = db.Column(db.Integer)
     @classmethod
     def add(cls, method, host, url, version="HTTP/1.1",response_code_desc="OK", response_code="200"):
         data = {
