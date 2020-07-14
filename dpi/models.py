@@ -8,8 +8,8 @@ class TopTalkers(db.Model):
     @classmethod
     def add(cls, src_ip, dest_ip):
         data = {
-            "srcIP": src_ip,
-            "dstIP": dest_ip
+            "src_ip": src_ip,
+            "dest_ip": dest_ip
         }
         top = cls(**data)
         db.session.add(top)
@@ -24,39 +24,20 @@ class TopTalkers(db.Model):
         return cls.query.offset(page).limit(per_page).all()
 
 
-class TCPStream(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    stream_index = db.Column(db.Integer)
-    value = db.Column(db.String(1000))
-
-    @classmethod
-    def add(cls, stream_index, value):
-        data = {
-            "stream_index": stream_index,
-            "value": value
-        }
-        tcp_stream = cls(**data)
-        db.session.add(tcp_stream)
-        try:
-            db.session.commit()
-        except Exception as e:
-            db.session.rollback()
-            raise
-
-    @classmethod
-    def get_tcp_stream(cls, page=0, per_page=20):
-        return cls.query.offset(page).limit(per_page).all()
-
 
 class ICMPPacket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    src_ip = db.Column(db.String(15))
+    dest_ip = db.Column(db.String(15))
     type = db.Column(db.Integer)
     code = db.Column(db.Integer)
     checksum_status = db.Column(db.Integer)
 
     @classmethod
-    def add(cls, typee, code, checksum_status):
+    def add(cls, src_ip, dest_ip, typee, code, checksum_status):
         data = {
+            "src_ip": src_ip,
+            "dest_ip": dest_ip,
             "type": typee,
             "code": code,
             "checksum_status": checksum_status
