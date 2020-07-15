@@ -13,10 +13,8 @@
         <a href="{{ url_for('tcp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">TCP</a>
         <a href="{{ url_for('udp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">UDP</a>
         <a href="{{ url_for('icmp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">ICMP</a>
-        <a href="{{ url_for('tcp_stream') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">tcp_stream</a>
-        <a href="{{ url_for('TopTalkers') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">Top5</a>
-
-      </nav>
+        <a href="{{ url_for('Top') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">Top5</a>
+        </nav>
       {% block content %}
       {% endblock %}
     </div>

@@ -40,5 +40,5 @@ def icmp():
 def Top():
     page = request.args.get("page", 0)
     per_page = request.args.get("per_page", 20)
-    return render_template("TopTalkers.html", TopTalkers = TopTalkers.get_Top(page, per_page), page=int(page))
+    return render_template("TopTalkers.html", TopTalkers = TopTalkers.get_top_talkers(page, per_page), page=int(page))
 
