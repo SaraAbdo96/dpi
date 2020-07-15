@@ -36,4 +36,9 @@ def icmp():
     per_page = request.args.get("per_page", 20)
     return render_template("icmp.html", icmps = ICMPPacket.get_icmp(page, per_page), page=int(page))
 
+@app.route("/TopTalkers")
+def Top():
+    page = request.args.get("page", 0)
+    per_page = request.args.get("per_page", 20)
+    return render_template("TopTalkers.html", TopTalkers = TopTalkers.get_Top(page, per_page), page=int(page))
 
