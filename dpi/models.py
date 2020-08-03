@@ -135,9 +135,8 @@ class HTTPrequest(db.Model):
             db.session.rollback()
             raise
     @classmethod
+    def get_num(cls):
+        return cls.query.count()
+    @classmethod
     def get_requests(cls, page=0, per_page=20):
         return cls.query.offset(page).limit(per_page).all()
-
-
-
-
