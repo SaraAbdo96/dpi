@@ -17,7 +17,11 @@ class TopTalkers(db.Model):
             raise
 
     @classmethod
-    def get_top_talkers(cls, page=0, per_page=20):
+    def get_num(cls):
+        return cls.query.count()
+
+    @classmethod
+    def get(cls, page=0, per_page=20):
         return cls.query.offset(page).limit(per_page).all()
 
 
@@ -47,7 +51,10 @@ class ICMPPacket(db.Model):
             db.session.rollback()
             raise
     @classmethod
-    def get_icmp(cls, page=0, per_page=20):
+    def get_num(cls):
+        return cls.query.count()
+    @classmethod
+    def get(cls, page=0, per_page=20):
         return cls.query.offset(page).limit(per_page).all()
 
 class UDPPacket(db.Model):
@@ -73,7 +80,11 @@ class UDPPacket(db.Model):
             raise
 
     @classmethod
-    def get_udp(cls, page=0, per_page=20):
+    def get_num(cls):
+        return cls.query.count()
+
+    @classmethod
+    def get(cls, page=0, per_page=20):
         return cls.query.offset(page).limit(per_page).all()
 
 
@@ -103,7 +114,11 @@ class TCPPacket(db.Model):
             raise
 
     @classmethod
-    def get_tcp(cls, page=0, per_page=20):
+    def get_num(cls):
+        return cls.query.count()
+
+    @classmethod
+    def get(cls, page=0, per_page=20):
         return cls.query.offset(page).limit(per_page).all()
 
 class HTTPrequest(db.Model):
@@ -135,5 +150,5 @@ class HTTPrequest(db.Model):
     def get_num(cls):
         return cls.query.count()
     @classmethod
-    def get_requests(cls, page=0, per_page=20):
+    def get(cls, page=0, per_page=20):
         return cls.query.offset(page).limit(per_page).all()

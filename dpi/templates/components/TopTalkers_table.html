@@ -11,16 +11,4 @@
     {% endfor %}
   </tbody>
 </table>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li class="page-item">
-          <a class="page-link" href="{{ url_for('Top', page=page-10) }}" tabindex="-1" aria-disabled="true">Previous</a>
-      </li>
-
-
-      <li class="page-item">
-        <a class="page-link"  href="{{ url_for('Top', page=page+10) }}" >Next
-        </a>
-      </li>
-    </ul>
-  </nav>
+{% include 'components/pagination.html' %}
