@@ -1,12 +1,14 @@
 from .app import db
 class TopTalkers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    src_ip = db.Column(db.String(100))
+    src_ip = db.Column(db.String(1000))
+    dst_ip = db.Column(db.String(1000))
 
     @classmethod
-    def add(cls, src_ip):
+    def add(cls, src_ip, dst_ip):
         data = {
-            "src_ip": src_ip
+            "src_ip": src_ip,
+            "dst_ip": dst_ip
         }
         top = cls(**data)
         db.session.add(top)

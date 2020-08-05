@@ -8,13 +8,10 @@ def main():
         file_name = sys.argv[2]
         capture = pyshark.FileCapture(file_name)
     elif sys.argv[1]=="LiveCapture":
-        capture = pyshark.LiveCapture(interface="lo")
+        capture = pyshark.LiveCapture(interface="ens33")
         capture.sniff(timeout=10)
     #if len(sys.argv) == 2:
         #file_name = sys.argv[1]
-    #capture = pyshark.FileCapture(file_name)
-    #capture = pyshark.LiveCapture(interface="ens33")
-    #capture.sniff(timeout=10)
     num_http_request = 0
     for packet in capture:
         print(packet)

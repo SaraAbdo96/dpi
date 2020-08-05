@@ -17,17 +17,14 @@ def main():
             dst_addr = packet.ip.dst
             source.append(src_addr)
             destination.append(dst_addr)
+            top_5_src = Counter(source).most_common(5)
+            top_5_dst = Counter(destination).most_common(5)
         except AttributeError as e:
             print(str(e))
-    top_5_src = Counter(source).most_common(5)
-    top_5_dst = Counter(destination).most_common(5)
-    #items = list(zip(top_5_src, top_5_dst))
-    #for item in top_5_src:
-        #try:
-            #print("Adding top talkers")
-            #TopTalkers.add(item)
-        #except:
-            #pass
+    zip_object = zip(top_5_src, top_5_dst)
+    for item1, item2 in zip_object:
+        TopTalkers.add(item1, item2)
+        print("Adding Top Talkers")
 
 
 if __name__ == '__main__':

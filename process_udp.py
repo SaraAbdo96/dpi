@@ -3,10 +3,13 @@ import sys
 from dpi.models import UDPPacket
 
 def main():
-    file_name = "smallFlows.pcap"
-    if len(sys.argv) == 2:
-        file_name = sys.argv[1]
-    capture = pyshark.FileCapture(file_name)
+    #file_name = "smallFlows.pcap"
+    if sys.argv[1]=="FileCapture":
+        file_name = sys.argv[2]
+        capture = pyshark.FileCapture(file_name)
+    elif sys.argv[1]=="LiveCapture":
+        capture = pyshark.LiveCapture(interface="ens33")
+        capture.sniff(timeout=10)
     for packet in capture:
         if "udp" in packet:
             udp = packet.udp

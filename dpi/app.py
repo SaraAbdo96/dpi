@@ -65,5 +65,5 @@ def icmp():
 def Top():
     page = int(request.args.get("page", 0))
     per_page = int(request.args.get("per_page", 20))
-    (icmps, pages, max_page) = get_pages(page, per_page, TopTalkers)
-    return render_template("TopTalkers.html", icmps = icmps, page=page, pages=pages, max_page=max_page)
+    (top, pages, max_page) = get_pages(page, per_page, TopTalkers)
+    return render_template("TopTalkers.html", top = top, page=page, pages=pages, max_page=max_page)

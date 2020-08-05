@@ -11,7 +11,7 @@ def main():
        file_name = sys.argv[2]
        capture = pyshark.FileCapture(file_name)
     elif sys.argv[1] == "LiveCapture":
-       capture = pyshark.LiveCapture(interface="lo")
+       capture = pyshark.LiveCapture(interface="ens33")
        capture.sniff(timeout=10)
     num_http_request = 0
     num_http_response = 0
