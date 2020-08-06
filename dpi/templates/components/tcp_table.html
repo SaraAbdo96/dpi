@@ -1,5 +1,5 @@
-<table class="table table-bordered table-hover table-light table-sm" style="background-color:plum;width:100%; border:1px solid #000; text-align: center;">
-  <thead class="thead-dark" style="background:#003366; color:#fff;  padding:.5rem; text-align: center; font-size: 20px;">
+<table class="table table-bordered" style="width:100%;border:2px solid black; text-align: center;">
+  <thead class="" style="padding:5px;color:#fff;  text-align: center; font-size: 25px; background-color:#41465c; ">
     <tr>
       <th scope="col">stream_index</th>
       <th scope="col">source IP</th>
@@ -8,7 +8,7 @@
       <th scope="col">destination port</th>
     </tr>
   </thead>
-  <tbody style="color: #000;font-size: 17px;">
+  <tbody style="font-size: 17px;background-color:#C0C0C0; ">
      {% for tcp in tcps %}
     {% include 'components/tcp_packet.html' %}
     {% endfor %}

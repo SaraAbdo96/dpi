@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   </head>
-  <body style="background:Gainsboro;">
-    <div class="b" style=" font-weight:bold; color:#fff; text-decoration:none; padding: .13rem; ">
-      <nav style=" font-size:1.5rem; color:#fff;  padding: .3rem; margin: 25px;">
-        <a href="{{ url_for('http') }}" style="color: Gainsboro; text-decoration:none;background:#003366;border-radius:12px;">HTTP</a>
-        <a href="{{ url_for('tcp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">TCP</a>
-        <a href="{{ url_for('udp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">UDP</a>
-        <a href="{{ url_for('icmp') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">ICMP</a>
-        <a href="{{ url_for('Top') }}" style="color: Gainsboro;text-decoration:none;background:#003366;border-radius:12px;">Top5</a>
+  <body style="background:#F5F5F5; font-family: arial,tahoma;font-weight:bold;">
+    <div class="b">
+      <nav style="font-family: arial,tahoma;font-size: 35px; padding: 10px;  background-color:Gainsboro;">
+        <a href="{{ url_for('http') }}" style="color: Gainsboro; text-decoration:none;background:#22294d;border-radius:12px; margin-right:200px; margin-left: 250px; padding:5px;">HTTP</a>
+        <a href="{{ url_for('tcp') }}" style="color: Gainsboro;text-decoration:none;background:#22294d;border-radius:12px;margin-right: 200px;padding:5px;">TCP</a>
+        <a href="{{ url_for('udp') }}" style="color: Gainsboro;text-decoration:none;background:#22294d;border-radius:12px;margin-right: 200px;padding:5px;">UDP</a>
+        <a href="{{ url_for('icmp') }}" style="color: Gainsboro;text-decoration:none;background:#22294d;border-radius:12px;margin-right: 200px;padding:5px;">ICMP</a>
+        <a href="{{ url_for('Top') }}" style="color: Gainsboro;text-decoration:none;background:#22294d;border-radius:12px;margin-right: 200px;padding:5px;">Top5</a>
         </nav>
       {% block content %}
       {% endblock %}
